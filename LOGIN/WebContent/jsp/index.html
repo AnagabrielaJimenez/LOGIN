@@ -6,17 +6,28 @@
 <title>Datos alumno</title>
 <script>
 	function validar(){
-		
+		var cui = document.forms["Datos"]["cui"].value;
+		var clave = document.forms["Datos"]["clave"].value;
+		var valcui = 20180011;
+		if(clave==""){
+			alert("Clave no debe de estar vacío");
+			return false;
+		}
+		else if (!valcui.test(cui)) {
+		    alert("El cui no es válido");
+		    return false;
+		}
 	}
 </script>
 
 </head>
 <body>
-<form action="" method="GET" name="Datos" onsubmit="return validar()">
+<form action="Servlet" method="POST" name="Datos" onsubmit="return validar()">
 	<label for="cui">CUI:</label>
   	<input type="text" name="cui" id="cui" ><br><br>
 	<label for="clave">Clave:</label>
-  <input type="text" name="clave" id="clave" ><br><br>
+    <input type="text" name="clave" id="clave" ><br><br>
+    <input type="submit" value="Enviar">
 </form>  
 </body>
 </html>
